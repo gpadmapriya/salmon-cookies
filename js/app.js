@@ -7,12 +7,10 @@ var salesAtPike = {
   maxCustomers: 65,
   averageCookieSales: 6.3,
   customersPerHour: function(){
-    return Math.floor(Math.random() * (65-23)) + 1;
+    return Math.floor(Math.random() * (65-23)) + 23;
   },
   salesPerHour: []
 };
-
-//Math.floor(Math.random() * 10) + 1
 
 var totalAtPike = 0;
 var sales = 0;
@@ -23,9 +21,11 @@ for (i=0; i<15; i++){
 }
 
 var locationContainerEl = document.getElementById('location-container');
-var locationH3El = document.createElement('h3');
-locationH3El.textContent = salesAtPike.location;
-locationContainerEl.appendChild(locationH3El);
+var locationLiEl = document.createElement('li');
+locationLiEl.textContent = salesAtPike.location;
+locationContainerEl.appendChild(locationLiEl);
+
+var ulEl = document.createElement('ul');
 
 var liEl;
 for (i=0; i<15; i++){
@@ -38,12 +38,14 @@ for (i=0; i<15; i++){
     liEl.textContent = (i+6) + ' pm: ' + salesAtPike.salesPerHour[i] + ' cookies';
   }
 
-  locationContainerEl.appendChild(liEl);
+  ulEl.appendChild(liEl);
 }
 
 liEl = document.createElement('li');
 liEl.textContent = 'Total: ' + totalAtPike + ' cookies';
-locationContainerEl.appendChild(liEl);
+ulEl.appendChild(liEl);
+
+locationContainerEl.appendChild(ulEl);
 
 var salesAtSeatac = {
   location: 'SeaTac Airport',
@@ -51,7 +53,7 @@ var salesAtSeatac = {
   maxCustomers: 24,
   averageCookieSales: 1.2,
   customersPerHour: function(){
-    return Math.floor(Math.random() * (24-3)) + 1;
+    return Math.floor(Math.random() * (24-3)) + 3;
   },
   salesPerHour: []
 };
@@ -66,9 +68,11 @@ for (i=0; i<15; i++){
 }
 
 locationContainerEl = document.getElementById('location-container');
-locationH3El = document.createElement('h3');
-locationH3El.textContent = salesAtSeatac.location;
-locationContainerEl.appendChild(locationH3El);
+locationLiEl = document.createElement('li');
+locationLiEl.textContent = salesAtSeatac.location;
+locationContainerEl.appendChild(locationLiEl);
+
+ulEl = document.createElement('ul');
 
 for (i=0; i<15; i++){
   liEl = document.createElement('li');
@@ -80,13 +84,14 @@ for (i=0; i<15; i++){
     liEl.textContent = (i+6) + ' pm: ' + salesAtSeatac.salesPerHour[i] + ' cookies';
   }
 
-  locationContainerEl.appendChild(liEl);
+  ulEl.appendChild(liEl);
 }
 
 liEl = document.createElement('li');
 liEl.textContent = 'Total: ' + totalAtSeatac + ' cookies';
-locationContainerEl.appendChild(liEl);
+ulEl.appendChild(liEl);
 
+locationContainerEl.appendChild(ulEl);
 
 var salesAtSeattleCenter = {
   location: 'Seattle Center',
@@ -94,7 +99,7 @@ var salesAtSeattleCenter = {
   maxCustomers: 38,
   averageCookieSales: 3.7,
   customersPerHour: function(){
-    return Math.floor(Math.random() * (38-11)) + 1;
+    return Math.floor(Math.random() * (38-11)) + 11;
   },
   salesPerHour: []
 };
@@ -109,9 +114,11 @@ for (i=0; i<15; i++){
 }
 
 locationContainerEl = document.getElementById('location-container');
-locationH3El = document.createElement('h3');
-locationH3El.textContent = salesAtSeattleCenter.location;
-locationContainerEl.appendChild(locationH3El);
+locationLiEl = document.createElement('li');
+locationLiEl.textContent = salesAtSeattleCenter.location;
+locationContainerEl.appendChild(locationLiEl);
+
+ulEl = document.createElement('ul');
 
 for (i=0; i<15; i++){
   liEl = document.createElement('li');
@@ -123,13 +130,14 @@ for (i=0; i<15; i++){
     liEl.textContent = (i+6) + ' pm: ' + salesAtSeattleCenter.salesPerHour[i] + ' cookies';
   }
 
-  locationContainerEl.appendChild(liEl);
+  ulEl.appendChild(liEl);
 }
 
 liEl = document.createElement('li');
 liEl.textContent = 'Total: ' + totalAtSeattleCenter + ' cookies';
-locationContainerEl.appendChild(liEl);
+ulEl.appendChild(liEl);
 
+locationContainerEl.appendChild(ulEl);
 
 var salesAtCapitolHill = {
   location: 'Capitol Hill',
@@ -137,7 +145,7 @@ var salesAtCapitolHill = {
   maxCustomers: 38,
   averageCookieSales: 2.3,
   customersPerHour: function(){
-    return Math.floor(Math.random() * (38-20+1)) + 1;
+    return Math.floor(Math.random() * (38-20+1)) + 20;
   },
   salesPerHour: []
 };
@@ -152,9 +160,11 @@ for (i=0; i<15; i++){
 }
 
 locationContainerEl = document.getElementById('location-container');
-locationH3El = document.createElement('h3');
-locationH3El.textContent = salesAtCapitolHill.location;
-locationContainerEl.appendChild(locationH3El);
+locationLiEl = document.createElement('li');
+locationLiEl.textContent = salesAtCapitolHill.location;
+locationContainerEl.appendChild(locationLiEl);
+
+ulEl = document.createElement('ul');
 
 for (i=0; i<15; i++){
   liEl = document.createElement('li');
@@ -166,12 +176,14 @@ for (i=0; i<15; i++){
     liEl.textContent = (i+6) + ' pm: ' + salesAtCapitolHill.salesPerHour[i] + ' cookies';
   }
 
-  locationContainerEl.appendChild(liEl);
+  ulEl.appendChild(liEl);
 }
 
 liEl = document.createElement('li');
 liEl.textContent = 'Total: ' + totalAtCapitolHill + ' cookies';
-locationContainerEl.appendChild(liEl);
+ulEl.appendChild(liEl);
+
+locationContainerEl.appendChild(ulEl);
 
 var salesAtAlki = {
   location: 'Alki',
@@ -179,7 +191,7 @@ var salesAtAlki = {
   maxCustomers: 16,
   averageCookieSales: 4.6,
   customersPerHour: function(){
-    return Math.floor(Math.random() * (16-2+1)) + 1;
+    return Math.floor(Math.random() * (16-2+1)) + 2;
   },
   salesPerHour: []
 };
@@ -194,9 +206,11 @@ for (i=0; i<15; i++){
 }
 
 locationContainerEl = document.getElementById('location-container');
-locationH3El = document.createElement('h3');
-locationH3El.textContent = salesAtAlki.location;
-locationContainerEl.appendChild(locationH3El);
+locationLiEl = document.createElement('li');
+locationLiEl.textContent = salesAtAlki.location;
+locationContainerEl.appendChild(locationLiEl);
+
+ulEl = document.createElement('ul');
 
 for (i=0; i<15; i++){
   liEl = document.createElement('li');
@@ -208,10 +222,12 @@ for (i=0; i<15; i++){
     liEl.textContent = (i+6) + ' pm: ' + salesAtAlki.salesPerHour[i] + ' cookies';
   }
 
-  locationContainerEl.appendChild(liEl);
+  ulEl.appendChild(liEl);
 }
 
 liEl = document.createElement('li');
 liEl.textContent = 'Total: ' + totalAtAlki + ' cookies';
-locationContainerEl.appendChild(liEl);
+ulEl.appendChild(liEl);
+
+locationContainerEl.appendChild(ulEl);
 
