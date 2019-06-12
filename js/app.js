@@ -14,7 +14,8 @@ StoreSales.prototype.makeList = function(){
   var sales;
   var total = 0;
   this.salesPerHour = [];
-  for (i=0; i<15; i++){
+
+  for (i=0; i < 15; i++){
     customersInOneHour = Math.floor(Math.random() * (this.maxCustomers-this.minCustomers)) + this.minCustomers;
     sales = Math.floor(customersInOneHour * this.averageCookiesPerCustomer);
     this.salesPerHour.push(sales);
@@ -30,7 +31,7 @@ StoreSales.prototype.render = function(){
   thEl.textContent = this.location;
   trEl.appendChild(thEl);
 
-  for (i=0; i<15; i++){
+  for (i=0; i < 15; i++){
     var tdEl = document.createElement('td');
     tdEl.textContent = this.salesPerHour[i];
     trEl.appendChild(tdEl);
@@ -86,9 +87,7 @@ var displayHeader = function(){
 
   theadEl.appendChild(trEl);
   tableEl.appendChild(theadEl);
-}
-
-displayHeader();
+};
 
 var displayFooter = function(){
 
@@ -112,7 +111,6 @@ var displayFooter = function(){
     trEl.appendChild(tdEl);
     totalCookies = totalCookies + colTotal;
   }
-  
 
   tdEl = document.createElement('td');
   tdEl.textContent = totalCookies;
@@ -121,6 +119,8 @@ var displayFooter = function(){
   tableEl.appendChild(tfootEl);
 };
 
+displayHeader();
+
 salesAtPike.render();
 salesAtSeatac.render();
 salesAtSeattleCenter.render();
@@ -128,3 +128,5 @@ salesAtCapitolHill.render();
 salesAtAlki.render();
 
 displayFooter();
+
+//adding comment to check github push
