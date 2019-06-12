@@ -1,6 +1,6 @@
-#location-container {
+main li{
    float: left;
-   width: 600px;
+   width: 50%;
 }
 
 img {
@@ -13,4 +13,9 @@ img {
   margin-right: auto;
   
 }
+th, td{
+  border: 1px solid blue;
+    
+}
+
 
