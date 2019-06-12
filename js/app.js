@@ -2,21 +2,21 @@
 
 var i;
 
-var StoreSales = function(location, minCustomers, maxCustomers, averageCookiesPerCustomer){
+var StoreSales = function(location, minCustomers, maxCustomers, averageCookiesPerCustomer) {
   this.location = location;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.averageCookiesPerCustomer = averageCookiesPerCustomer;
 };
 
-StoreSales.prototype.makeList = function(){
+StoreSales.prototype.makeList = function() {
   var customersInOneHour;
   var sales;
   var total = 0;
   this.salesPerHour = [];
 
-  for (i=0; i < 15; i++){
-    customersInOneHour = Math.floor(Math.random() * (this.maxCustomers-this.minCustomers)) + this.minCustomers;
+  for (i = 0; i < 15; i++) {
+    customersInOneHour = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers)) + this.minCustomers;
     sales = Math.floor(customersInOneHour * this.averageCookiesPerCustomer);
     this.salesPerHour.push(sales);
     total = total + sales;
@@ -24,14 +24,14 @@ StoreSales.prototype.makeList = function(){
   this.totalSales = total;
 };
 
-StoreSales.prototype.render = function(){
+StoreSales.prototype.render = function() {
   var tbodyEl = document.createElement('tbody');
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   thEl.textContent = this.location;
   trEl.appendChild(thEl);
 
-  for (i=0; i < 15; i++){
+  for (i = 0; i < 15; i++) {
     var tdEl = document.createElement('td');
     tdEl.textContent = this.salesPerHour[i];
     trEl.appendChild(tdEl);
@@ -42,7 +42,6 @@ StoreSales.prototype.render = function(){
 
   tbodyEl.appendChild(trEl);
   tableEl.appendChild(tbodyEl);
-
 };
 var salesAtPike = new StoreSales('1st and Pike', 23, 65, 6.3);
 var salesAtSeatac = new StoreSales('SeaTac Airport', 3, 24, 1.2);
@@ -60,7 +59,7 @@ salesAtAlki.makeList();
 
 var tableEl = document.getElementById('my-table');
 
-var displayHeader = function(){
+var displayHeader = function() {
   var theadEl = document.createElement('thead');
   var trEl = document.createElement('tr');
 
@@ -69,14 +68,14 @@ var displayHeader = function(){
   thEl.textContent = '';
   trEl.appendChild(thEl);
 
-  for (i=0; i<15; i++){
+  for (i = 0; i < 15; i++) {
     thEl = document.createElement('th');
-    if (i < 6){
-      thEl.textContent = (i+6) + ':00am';
-    } else if (i > 6){
-      thEl.textContent = (i-6) + ':00pm';
+    if (i < 6) {
+      thEl.textContent = i + 6 + ':00am';
+    } else if (i > 6) {
+      thEl.textContent = i - 6 + ':00pm';
     } else {
-      thEl.textContent = (i+6) + ':00pm';
+      thEl.textContent = i + 6 + ':00pm';
     }
     trEl.appendChild(thEl);
   }
@@ -89,8 +88,7 @@ var displayHeader = function(){
   tableEl.appendChild(theadEl);
 };
 
-var displayFooter = function(){
-
+var displayFooter = function() {
   var tfootEl = document.createElement('tfoot');
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
@@ -101,9 +99,9 @@ var displayFooter = function(){
   var totalCookies = 0;
 
   var tdEl;
-  for (i = 0; i < 15; i++){
+  for (i = 0; i < 15; i++) {
     colTotal = 0;
-    for (var j = 0; j < 5; j++){
+    for (var j = 0; j < 5; j++) {
       colTotal = colTotal + allStores[j].salesPerHour[i];
     }
     tdEl = document.createElement('td');
@@ -130,3 +128,21 @@ salesAtAlki.render();
 displayFooter();
 
 //adding comment to check github push
+
+// adding form event
+
+var handleSubmitEvent = function(submitEvent) {
+  submitEvent.preventDefault();
+
+  var storeName = submitEvent.target.storeName.value;
+  var minCustomers = submitEvent.target.minCustomers.value;
+  var maxCustomers = submitEvent.target.maxCustomers.value;
+  var avgCookiesPerHour = submitEvent.target.avgCookiesPerHour.value;
+
+  var newStore = new StoreSales(storeName, minCustomers, maxCustomers, avgCookiesPerHour);
+
+  newStore.makeList();
+  newStore.render();
+};
+
+var form = document.addEventListener('submit', handleSubmitEvent);
