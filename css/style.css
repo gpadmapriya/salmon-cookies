@@ -1,21 +1,83 @@
+*{
+  box-sizing: border-box;
+}
+
+header{
+  height: 75px;
+  background-color: #999;
+
+}
+main{
+  height: 900px;
+  width:960px;
+}
+main div{
+  
+  float: left;
+}
+#left{
+  width:200px;
+  height: 900px;
+
+}
+
+#middle{
+  width:560px;
+  height: 900px;
+  background-color:cyan;
+  border: 5px solid cyan;
+}
+footer{
+  height:50px;
+  background-color: #999;
+}
 main li{
    float: left;
    width: 50%;
 }
 
-img {
-  width: 400px;
-  height: 200px;
+
+main div img {
+  width: 272px;
+  height: 272px;
 }
+
+#shop{
+  height: 200px;
+  list-style: none;
+  float: right;
+}
+
+#family{
+  width: 490px;
+}
+
 .center {
-  display: block;
   margin-left: auto;
   margin-right: auto;
   
 }
 th, td{
   border: 1px solid blue;
-    
+  
+}
+
+nav ul li {
+  list-style: none;
+  float: left;
+  margin-right: 60px;
+  font-size:20px;
+  
+}
+nav ul li img {
+  width: 75px;
+  height: 75px;
+}
+nav ul li h1{
+  width: 800px;
+  text-align: center;
+  font-size: 40px;
+  margin: 0px auto;
 }
 
 
