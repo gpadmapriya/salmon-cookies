@@ -2,6 +2,8 @@
 
 var i;
 
+//StoreSales object
+
 var StoreSales = function (
   location,
   minCustomers,
@@ -13,6 +15,8 @@ var StoreSales = function (
   this.maxCustomers = maxCustomers;
   this.averageCookiesPerCustomer = averageCookiesPerCustomer;
 };
+
+//makelist function - creates an array as an object item with the hour total for a store
 
 StoreSales.prototype.makeList = function () {
   var customersInOneHour;
@@ -30,6 +34,8 @@ StoreSales.prototype.makeList = function () {
   }
   this.totalSales = total;
 };
+
+//Creates and renders the body of the sales table
 
 StoreSales.prototype.render = function () {
   var tbodyEl = document.createElement('tbody');
@@ -67,6 +73,8 @@ salesAtAlki.makeList();
 
 var tableEl = document.getElementById('my-table');
 
+//Header function - renders the header of the sales table
+
 var displayHeader = function () {
   var theadEl = document.createElement('thead');
   var trEl = document.createElement('tr');
@@ -95,6 +103,8 @@ var displayHeader = function () {
   theadEl.appendChild(trEl);
   tableEl.appendChild(theadEl);
 };
+
+//Footer function - creates and renders the footer of the sales table
 
 var displayFooter = function () {
 
