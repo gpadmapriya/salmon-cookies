@@ -98,8 +98,15 @@ var displayHeader = function () {
 
 var displayFooter = function () {
 
+  if (document.getElementById('tfoot')) {
+    document.getElementById('tfoot').remove();
+  }
+
+
   tableEl = document.getElementById('my-table');
   var tfootEl = document.createElement('tfoot');
+  tfootEl.setAttribute('id', 'tfoot');
+
 
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
@@ -149,17 +156,20 @@ var handleSubmitEvent = function (submitEvent) {
   var maxCustomers = submitEvent.target.maxCustomers.value;
   var avgCookiesPerHour = submitEvent.target.avgCookiesPerHour.value;
 
+  console.log('New store name: ' + storeName);
   var newStore = new StoreSales(
     storeName,
     minCustomers,
     maxCustomers,
     avgCookiesPerHour
   );
-
+  console.log('New Store: ' + newStore);
   allStores.push(newStore);
   newStore.makeList();
 
   newStore.render();
+
+  displayFooter();
 
 };
 
